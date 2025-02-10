@@ -1,15 +1,21 @@
 package com.mycompany.lab03;
 
-import com.mycompany.lab03.controller.GetMapping;
-import com.mycompany.lab03.controller.RestController;
-import com.mycompany.lab03.controller.RequestParam;
-
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.PrintWriter;
 import java.lang.reflect.Method;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.HashMap;
 import java.util.Map;
+
+import com.mycompany.lab03.controller.GetMapping;
+import com.mycompany.lab03.controller.RequestParam;
+import com.mycompany.lab03.controller.RestController;
 
 public class HttpServer {
 
@@ -32,7 +38,7 @@ public class HttpServer {
         }
     }
 
-    private static void handleRequest(Socket clientSocket) throws IOException {
+    public static void handleRequest(Socket clientSocket) throws IOException {
         BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
         PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
 
@@ -100,7 +106,7 @@ public class HttpServer {
         }
     }
 
-    private static void loadComponents(String[] args) throws Exception {
+    public static void loadComponents(String[] args) throws Exception {
         for (String arg : args) {
             Class<?> c = Class.forName(arg);
             if (!c.isAnnotationPresent(RestController.class)) {
@@ -118,7 +124,7 @@ public class HttpServer {
         }
     }
 
-   private static String simulateRequests(String route, HttpRequest req) throws Exception {
+   public static String simulateRequests(String route, HttpRequest req) throws Exception {
     Method m = services.get(route);
     if (m == null) {
         return "HTTP/1.1 404 Not Found\r\n\r\n{\"error\":\"Ruta no encontrada\"}";

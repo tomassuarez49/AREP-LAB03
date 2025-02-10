@@ -28,4 +28,6 @@ public class MathController {
         }
         return response; // El framework convierte automáticamente el mapa a JSON
     }
+
+    
 }

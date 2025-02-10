@@ -10,4 +10,18 @@
         <maven.compiler.release>17</maven.compiler.release>
         <exec.mainClass>com.mycompany.lab03.LAB03</exec.mainClass>
     </properties>
+    <dependencies>
+    <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter</artifactId>
+        <version>5.9.3</version>
+        <scope>test</scope>
+    </dependency>
+    <dependency>
+        <groupId>org.mockito</groupId>
+        <artifactId>mockito-core</artifactId>
+        <version>5.3.1</version>
+        <scope>test</scope>
+    </dependency>
+</dependencies>
 </project>
