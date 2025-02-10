@@ -1,0 +1,57 @@
+/* Reset de márgenes y bordes para todos los elementos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo global */
+body {
+    font-family: Arial, sans-serif; /* Establecer una fuente legible */
+    background-color: #f4f4f9; /* Fondo claro */
+    color: #333; /* Texto oscuro */
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Estilo para el encabezado */
+h1 {
+    text-align: center; /* Centrar el texto */
+    color: #4CAF50; /* Color verde */
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+/* Estilo para los botones */
+button {
+    background-color: #4CAF50; /* Fondo verde */
+    color: white; /* Texto blanco */
+    border: none;
+    padding: 15px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+/* Efecto al pasar el ratón sobre el botón */
+button:hover {
+    background-color: #45a049; /* Cambio de color cuando se pasa el ratón */
+}
+
+/* Estilo para el área donde se muestran los resultados */
+#result {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #e1f7d5; /* Fondo suave */
+    border: 1px solid #4CAF50; /* Borde verde */
+    border-radius: 5px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.2em;
+    color: #333;
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Prueba de Servidor</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Enlazar el CSS -->
+    <script>
+        // Función para obtener datos desde /data
+        async function fetchData() {
+            let response = await fetch('http://localhost:32000/data');
+            let data = await response.json();
+            document.getElementById("result").innerText = JSON.stringify(data);
+        }
+
+        // Función para sumar dos números usando /sum
+        async function fetchSum() {
+            let num1 = document.getElementById("num1").value;
+            let num2 = document.getElementById("num2").value;
+
+            if (num1 === "" || num2 === "") {
+                document.getElementById("sumResult").innerText = "Por favor ingresa ambos números.";
+                return;
+            }
+
+            let response = await fetch(`http://localhost:32000/sum?a=${num1}&b=${num2}`);
+            let data = await response.json();
+
+            if (data.error) {
+                document.getElementById("sumResult").innerText = "Error: " + data.error;
+            } else {
+                document.getElementById("sumResult").innerText = `Resultado: ${data.sum}`;
+            }
+        }
+
+        // Función para obtener saludo desde /hello
+        async function fetchHello() {
+            let name = document.getElementById("name").value;
+
+            if (name === "") {
+                document.getElementById("helloResult").innerText = "Por favor ingresa tu nombre.";
+                return;
+            }
+
+            let response = await fetch(`http://localhost:32000/greeting?name=${name}`);
+            let text = await response.text();
+
+            document.getElementById("helloResult").innerText = text;
+        }
+    </script>
+</head>
+<body>
+<h1>Bienvenido a la prueba del servidor web</h1>
+
+<!-- Formulario para ingresar un nombre y obtener un saludo -->
+<h2>Obtener un saludo</h2>
+<label for="name">Ingresa tu nombre:</label>
+<input type="text" id="name" placeholder="Escribe tu nombre">
+<button onclick="fetchHello()">Saludar</button>
+<p id="helloResult"></p>
+
+<!-- Formulario para ingresar dos números y sumar -->
+<h2>Suma de dos números</h2>
+<label for="num1">Número 1:</label>
+<input type="number" id="num1" placeholder="Ingrese un número">
+<label for="num2">Número 2:</label>
+<input type="number" id="num2" placeholder="Ingrese otro número">
+<button onclick="fetchSum()">Calcular Suma</button>
+<p id="sumResult"></p>
+
+<!-- Imagen de prueba -->
+<img src="image.jpeg" alt="Imagen de prueba">
+</body>
+</html>
