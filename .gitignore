@@ -1,0 +1,48 @@
+# Directorios de compilación y salida de Maven
+target/
+out/
+build/
+
+# Archivos de configuración de Maven
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+
+# Archivos de logs y caché
+*.log
+*.tmp
+hs_err_pid*
+replay_pid*
+
+# Archivos generados por el sistema operativo
+.DS_Store
+Thumbs.db
+
+# Configuraciones de IDEs
+### IntelliJ IDEA ###
+.idea/
+*.iml
+*.iws
+
+### Eclipse ###
+.project
+.classpath
+.settings/
+bin/
+
+### VS Code ###
+.vscode/
+
+# Archivos de dependencias y paquetes
+.mvn/
+node_modules/
+
+# Archivos de seguridad (claves, tokens, etc.)
+*.env
+*.key
+*.pem
+*.crt
+*.pfx
+*.cert
